@@ -1,14 +1,18 @@
 // cherrell homework goes here
 
 function change(amount) {
-  let result =[]
-  [25, 10, 5, 1].forEach(coin => {
-    amount = Math.floor(amount / coin); 
-    result.push(amount % coin); 
-  }); 
-  return result;
-}; 
-=======
-exports.change = () => { 
-  return [0, 0, 0, 0];
+if (amount < 0) {
+throw new RangeError('amount cannot be negative');
 }
+const result =[];
+let remaining = amount;
+[25, 10, 5, 1].forEach((coin) => {
+amount = Math.floor(remaining / coin);
+remaining %= coin;
+});
+return result;
+}
+
+module.exports = {
+change,
+};
