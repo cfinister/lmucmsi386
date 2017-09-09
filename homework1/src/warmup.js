@@ -14,10 +14,6 @@ remaining %= coin;
 return result;
 }
 
-module.exports = {
-change,scramble, 
-};
-
 function stripQuotes(text) {
   var text = ("");
   if (text!= '') {
@@ -64,4 +60,8 @@ function decrypt() {
 
 function randomName () {
 //code goes here
+};
+
+module.exports = {
+change,stripQuotes,scramble,powers,powersGenerator,say,interleave,cylinder,encrypt,decrypt,randomName, 
 };
