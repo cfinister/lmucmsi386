@@ -5,21 +5,33 @@ function change(amount) {
 if (amount < 0) {
 throw new RangeError('amount cannot be negative');
 }
-const result =[0, 0, 0, 0];
-let remaining = amount;
-[25, 10, 5, 1].forEach((coin) => {
-amount = Math.floor(remaining / coin);
-remaining %= coin;
-});
-return result;
+
+const zero = [0, 0, 0, 0];
+
+  if (amount == 0) {
+    return zero;
+  }
+
+  let coin = [25, 10, 5, 1];
+  var remaining = amount;
+  for (i = 0; i < coin.length; i++) {
+    var temp = Math.floor(remaining / coin[i]); //using temp to help w/ remaining math amounts
+    remaining = remaining - (temp * coin[i]);
+    coin[i] = temp;
+  }
+
+  return coin;
 }
 
 function stripQuotes(text) {
-  var text = ("");
-  if (text!= '') {
-  var str1 = text.replace(/\,/g,"");
-  }
-};
+  //the gobal flag is used for the function to solve this gobally
+  let string = text;
+    string = string.replace(/"/g,''); //thanks to John & Jordan for helping
+    string = string.replace(/\\/g,''); //helped w/ getting to figure out how to use a global flag
+    string = string.replace(/'/g,'');
+
+    return string;
+}
 
 function scramble(word) {
   var scramble = '';
@@ -30,7 +42,7 @@ function scramble(word) {
     return scramble;
 };
 
-function powers() {
+function powers(base,limit,callBack) {
 //code goes here
 };
 
