@@ -34,6 +34,10 @@ function scramble() {
       return scramble;
 };
 
+module.exports = {
+scramble,
+};
+
 function powers() {
 //code goes here
 };
