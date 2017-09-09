@@ -5,7 +5,7 @@ function change(amount) {
 if (amount < 0) {
 throw new RangeError('amount cannot be negative');
 }
-const result =[];
+const result =[0, 0, 0, 0];
 let remaining = amount;
 [25, 10, 5, 1].forEach((coin) => {
 amount = Math.floor(remaining / coin);
@@ -63,5 +63,5 @@ function randomName () {
 };
 
 module.exports = {
-change,stripQuotes,scramble,powers,powersGenerator,say,interleave,cylinder,encrypt,decrypt,randomName, 
+change,stripQuotes,scramble,powers,powersGenerator,say,interleave,cylinder,encrypt,decrypt,randomName,
 };
