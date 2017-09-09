@@ -17,7 +17,18 @@ module.exports = {
 change,
 };
 
-function stripQuotes(text) {
-  var text = "";
-  var str1 = text.replace(/\,/g,"");
-}; 
+/*function stripQuotes(text) {
+  var text = ("");
+  if (text!= '') {
+    var str1 = text.replace(/\,/g,"");
+  }
+}; */
+
+function scramble() {
+  var scramble = '';
+      word = word.split('');
+      while (word.length > 0) {
+        scramble +=  word.splice(word.length * Math.random() << 0, 1);
+      }
+      return scramble;
+};
