@@ -15,7 +15,7 @@ return result;
 }
 
 module.exports = {
-change,
+change,scramble, 
 };
 
 function stripQuotes(text) {
@@ -32,10 +32,6 @@ function scramble() {
         scramble +=  word.splice(word.length * Math.random() << 0, 1);
       }
       return scramble;
-};
-
-module.exports = {
-scramble,
 };
 
 function powers() {
