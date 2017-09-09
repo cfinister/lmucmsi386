@@ -21,26 +21,13 @@ function stripQuotes(text) {
   }
 };
 
-function scramble(strInput) {
-  var inpArr = strInput.split("");
-  var arrRand = [];
-  var arrTempInd = [];
-  var max = inpArr.length;
-  var min = 0;
-  var tempInd;
-  var i =0 ;
-
-    do{
-        tempInd = Math.floor(Math.random() * (max - min));
-        if(arrTempInd.indexOf(tempInd)<0){
-        arrRand[i] = inpArr[tempInd];
-        arrTempInd.push(tempInd);
-        i++;
-          }
-      }
-    while(arrTempInd.length < max){
-      return arrRand.join("").toString();
-  }
+function scramble(word) {
+  var scramble = '';
+    word = word.split('');
+    while (word.length > 0) {
+      scramble +=  word.splice(word.length * Math.random() << 0, 1);
+    }
+    return scramble;
 };
 
 function powers() {
