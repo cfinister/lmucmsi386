@@ -1,4 +1,5 @@
-// cherrell homework goes here
+// Homework 1 Warmup to javascript - now due on Wednesday
+//Sept. 13th @ midnight on git hub - do not forget to push!
 
 function change(amount) {
 if (amount < 0) {
@@ -17,12 +18,12 @@ module.exports = {
 change,
 };
 
-/*function stripQuotes(text) {
+function stripQuotes(text) {
   var text = ("");
   if (text!= '') {
-    var str1 = text.replace(/\,/g,"");
+  var str1 = text.replace(/\,/g,"");
   }
-}; */
+};
 
 function scramble() {
   var scramble = '';
@@ -31,4 +32,36 @@ function scramble() {
         scramble +=  word.splice(word.length * Math.random() << 0, 1);
       }
       return scramble;
+};
+
+function powers() {
+//code goes here
+};
+
+function powersGenerator() {
+//code goes here
+};
+
+function say() {
+//code goes here
+};
+
+function interleave() {
+  //code goes here
+};
+
+function cylinder() {
+//code goes here
+};
+
+function encrypt() {
+//this one goes with function decrypt
+};
+
+function decrypt() {
+//this one goes with function encrypt
+};
+
+function randomName () {
+//code goes here
 };
