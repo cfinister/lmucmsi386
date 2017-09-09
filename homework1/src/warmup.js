@@ -16,3 +16,8 @@ return result;
 module.exports = {
 change,
 };
+
+function stripQuotes(text) {
+  var text = "";
+  var str1 = text.replace(/\,/g,"");
+}; 
