@@ -43,15 +43,33 @@ function scramble(word) {
 };
 
 function powers(base,limit,callBack) {
-//code goes here
-};
+  /*const powers = [];
+  let value = 0;
+  let exp = 0;
+  let nextValue = 0;
+  while (value < limit && nextValue += limit) {
+    value = base ** exp;
+    powers.push(value);
+    callback(value);
+    nextValue = base ** (exp + 1);
+    exp += 1;
+  }
+  return powers; */
+}
 
 function powersGenerator() {
 //code goes here
 };
 
 function say() {
-//code goes here
+  let words = [];
+    const nextWord = word;
+    if (nextWord == null) {
+      return '';
+    } else {
+      words.push(nextWord);
+      return words.join(" ");
+    }
 };
 
 function interleave() {
