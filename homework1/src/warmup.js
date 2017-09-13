@@ -46,11 +46,9 @@ function powers(base, limit, callBack) {
   }
 }
 
-function* powersGenerator(base, limit, callBack) {
+function* powersGenerator(base, limit) {
   for (let i = 0; base ** i <= limit; i += 1) {
-    while (true) {
-      yield base;
-    }
+      yield base ** i;
   }
 }
 
@@ -80,12 +78,9 @@ function cylinder(radius, height, surfaceArea, volume, widen, stretch) {
   // c.toString() = 0;
 }
 
-function encrypt() {
-  // this one goes with function decrypt
-}
-
-function decrypt() {
-  // this one goes with function encrypt
+function crypto(encrypt, decrypt) {
+   const encrypt = [];
+   const decrypt = [];
 }
 
 function randomName() {
@@ -101,7 +96,6 @@ module.exports = {
   say,
   interleave,
   cylinder,
-  encrypt,
-  decrypt,
+  crypto,
   randomName,
 };
