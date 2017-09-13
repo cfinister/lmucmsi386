@@ -46,8 +46,12 @@ function powers(base, limit, callBack) {
   }
 }
 
-function* powersGenerator() {
-  // code goes here
+function* powersGenerator(base, limit, callBack) {
+  for (let i = 0; base ** i <= limit; i += 1) {
+    while (true) {
+      yield base;
+    }
+  }
 }
 
 function say() {
