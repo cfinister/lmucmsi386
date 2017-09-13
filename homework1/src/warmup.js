@@ -52,7 +52,7 @@ function* powersGenerator() {
 
 function say() {
   const words = [];
-  const nextWord = word;
+  const nextWord = words;
   if (nextWord == null) {
     return '';
   }
@@ -61,7 +61,7 @@ function say() {
 }
 
 function interleave() {
-// code goes here
+  // code goes here
 }
 
 function cylinder(radius, height, surfaceArea, volume, widen, stretch) {
