@@ -1,5 +1,5 @@
 // Homework 1 Warmup to javascript - now due on Wednesday
-//Sept. 13th @ midnight on git hub - do not forget to push!
+//Sept. 15th @ midnight on git hub - do not forget to push!
 
 function change(amount) {
     if (amount < 0) {
@@ -41,21 +41,12 @@ function scramble(word) {
 };
 
 function powers(base, limit, callBack) {
-    /*const powers = [];
-    let value = 0;
-    let exp = 0;
-    let nextValue = 0;
-    while (value < limit && nextValue += limit) {
-      value = base ** exp;
-      powers.push(value);
-      callback(value);
-      nextValue = base ** (exp + 1);
-      exp += 1;
-    }
-    return powers; */
+  for (let i = 0; base**i <= limit; i++) {
+    callBack(base ** i);
+  }
 }
 
-function powersGenerator() {
+function* powersGenerator() {
     //code goes here
 };
 
@@ -74,7 +65,7 @@ function interleave() {
     //code goes here
 };
 
-function cylinder() {
+function cylinder(radius, height, surfaceArea, volume, widen, stretch, toString) {
     let c = cylinder;
     let cylinder = {};
     c.surfaceArea() = 0;
