@@ -48,23 +48,42 @@ function powers(base, limit, callBack) {
 
 function* powersGenerator(base, limit) {
   for (let i = 0; base ** i <= limit; i += 1) {
-      yield base ** i;
+    yield base ** i;
   }
 }
 
-function say() {
-  const words = [];
-  const nextWord = words;
-  if (nextWord == null) {
+function say(word) {
+  if (word == null) {
     return '';
   }
-  words.push(nextWord);
-  return words.join(' ');
+  return function chain(nextWord) {
+    if (nextWord) {
+      return say(`${word} ${nextWord}`);
+    }
+    return word;
+  };
 }
 
-function interleave() {
-  // code goes here
+function interleave(x, ...y) {
+  const combined = [];
+  let combineX = 0;
+  let combineY = 0;
+  const comLength = x.length + y.length;
+
+  while (combineX + combineY < comLength) {
+    if (x[combineX]) {
+      combined.push(x[combineX]);
+      combineX += 1;
+    }
+    if (y[combineY]) {
+      combined.push(y[combineY]);
+      combineY += 1;
+    }
+  }
+
+  return combined;
 }
+
 
 function cylinder(radius, height, surfaceArea, volume, widen, stretch) {
   // let c = cylinder;
@@ -79,8 +98,8 @@ function cylinder(radius, height, surfaceArea, volume, widen, stretch) {
 }
 
 function crypto(encrypt, decrypt) {
-   const encrypt = [];
-   const decrypt = [];
+  // let encrypt = [];
+  // let decrypt = [];
 }
 
 function randomName() {
