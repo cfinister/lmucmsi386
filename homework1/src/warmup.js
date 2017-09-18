@@ -110,10 +110,10 @@ function cylinder(spec) {
   });
 }
 
-function crypto(encrypt, decrypt) {
+/* function crypto(encrypt, decrypt) {
   // let encrypt = [];
   // let decrypt = [];
-}
+} */
 
 function randomName() {
   // code goes here
@@ -128,6 +128,6 @@ module.exports = {
   say,
   interleave,
   cylinder,
-  crypto,
+  // crypto,
   randomName,
 };
