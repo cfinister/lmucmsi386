@@ -1,5 +1,6 @@
-// Homework 1 Warmup to javascript - now due on Wednesday
-// Sept. 15th @ midnight on git hub - do not forget to push!
+// Homework 1 Warmup to javascript
+// Worked on by Cherrell Finister and Hayato Hori - github(// horihayato)
+// +2 extra credit points
 
 function change(amount) {
   if (amount < 0) {
