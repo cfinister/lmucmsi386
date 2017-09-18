@@ -49,7 +49,7 @@ function powers(base, limit, callBack) {
 
 function* powersGenerator(base, limit) {
   for (let i = 0; base ** i <= limit; i += 1) {
-    yield base ** i;
+    yield base ** i; // thanks to joey for helping with the yield
   }
 }
 
@@ -86,16 +86,28 @@ function interleave(x, ...y) {
 }
 
 
-function cylinder(radius, height, surfaceArea, volume, widen, stretch) {
-  // let c = cylinder;
-  // let cylinder = {};
-  // //c.surfaceArea() = 0;
-  // c.volume() = 0;
-  // c.radius = 0;
-  // c.height = 0;
-  // c.widen() = 0;
-  // c.stretch() = 0;
-  // c.toString() = 0;
+function cylinder(spec) {
+  let { radius, height } = spec;
+  if (radius === undefined) {
+    radius = 1;
+  }
+  if (height === undefined) {
+    height = 1;
+  }
+  const volume = () => Math.PI * radius * radius * height;
+  const surfaceArea = () => (2 * Math.PI * radius * height) + (2 * Math.PI * radius * radius);
+  const widen = (w1) => { radius *= w1; };
+  const stretch = (s1) => { height *= s1; };
+  const toString = () => `radius is ${radius} & height is ${height}`;
+  return Object.freeze({
+    volume,
+    surfaceArea,
+    widen,
+    stretch,
+    toString,
+    get radius() { return radius; }, // thanks to hayley for helping understanding getters
+    get height() { return height; },
+  });
 }
 
 function crypto(encrypt, decrypt) {
