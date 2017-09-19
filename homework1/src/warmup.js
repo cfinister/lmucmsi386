@@ -96,8 +96,8 @@ function cylinder(spec) {
   }
   const volume = () => Math.PI * radius * radius * height;
   const surfaceArea = () => (2 * Math.PI * radius * height) + (2 * Math.PI * radius * radius);
-  const widen = (w1) => { radius *= w1; };
-  const stretch = (s1) => { height *= s1; };
+  const widen = (widenRadius) => { radius *= widenRadius; };
+  const stretch = (stretchHeight) => { height *= stretchHeight; };
   const toString = () => `radius is ${radius} & height is ${height}`;
   return Object.freeze({
     volume,
