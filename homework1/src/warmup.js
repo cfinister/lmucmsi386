@@ -14,7 +14,7 @@ function change(amount) {
   const coin = [25, 10, 5, 1];
   let remaining = amount;
   for (let i = 0; i < coin.length; i += 1) {
-    const temp = Math.floor(remaining / coin[i]); // using temp to help w/ remaining math amounts
+    const temp = Math.floor(remaining / coin[i]);
     remaining -= (temp * coin[i]);
     coin[i] = temp;
   }
@@ -23,7 +23,6 @@ function change(amount) {
 }
 
 function stripQuotes(text) {
-  // the gobal flag is used for the function to solve this gobally
   let string = text;
   string = string.replace(/"/g, ''); // thanks to John & Jordan for helping
   string = string.replace(/\\/g, ''); // helped w/ getting to figure out how to use a global flag
@@ -110,9 +109,12 @@ function cylinder(spec) {
   });
 }
 
-/* function crypto(encrypt, decrypt) {
-  // let encrypt = [];
-  // let decrypt = [];
+/* function makeCryptoFunctions(key, algorithm) {
+  const crypto = require('crypto');
+  const cipher = crypto.createCipher('utf8', 'hex');
+  let encrypted = cipher.update(algorithm, 'utf8', 'hex');
+  encrypted += cipher.final('hex');
+  return [encrypted, cipher];
 } */
 
 function randomName() {
@@ -128,6 +130,6 @@ module.exports = {
   say,
   interleave,
   cylinder,
-  // crypto,
+  // makeCryptoFunctions,
   randomName,
 };
