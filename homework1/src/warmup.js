@@ -2,13 +2,15 @@
 // Worked on by Cherrell Finister and Hayato Hori - github(// horihayato)
 // +2 extra credit points
 
+const crypto = require('crypto');
+
 function change(amount) {
   if (amount < 0) {
     throw new RangeError('amount cannot be negative');
   }
-  const zero = [0, 0, 0, 0];
+  const NO_COINS = [0, 0, 0, 0];
   if (amount === 0) {
-    return zero;
+    return NO_COINS;
   }
 
   const coin = [25, 10, 5, 1];
@@ -24,10 +26,7 @@ function change(amount) {
 
 function stripQuotes(text) {
   let string = text;
-  string = string.replace(/"/g, ''); // thanks to John & Jordan for helping
-  string = string.replace(/\\/g, ''); // helped w/ getting to figure out how to use a global flag
-  string = string.replace(/'/g, '');
-
+  string = string.replace(/['"]/g, '');
   return string;
 }
 
@@ -41,19 +40,19 @@ function scramble(word) {
 }
 
 function powers(base, limit, callBack) {
-  for (let i = 0; base ** i <= limit; i += 1) {
-    callBack(base ** i);
+  for (let i = 1; i <= limit; i *= base) {
+    callBack(i);
   }
 }
 
 function* powersGenerator(base, limit) {
-  for (let i = 0; base ** i <= limit; i += 1) {
-    yield base ** i; // thanks to joey for helping with the yield
+  for (let i = 1; i <= limit; i *= base) {
+    yield i; // thanks to joey for helping with the yield
   }
 }
 
 function say(word) {
-  if (word == null) {
+  if (word === undefined) {
     return '';
   }
   return function chain(nextWord) {
@@ -86,13 +85,7 @@ function interleave(x, ...y) {
 
 
 function cylinder(spec) {
-  let { radius, height } = spec;
-  if (radius === undefined) {
-    radius = 1;
-  }
-  if (height === undefined) {
-    height = 1;
-  }
+  let { radius = 1, height = 1 } = spec;
   const volume = () => Math.PI * radius * radius * height;
   const surfaceArea = () => (2 * Math.PI * radius * height) + (2 * Math.PI * radius * radius);
   const widen = (widenRadius) => { radius *= widenRadius; };
@@ -109,13 +102,16 @@ function cylinder(spec) {
   });
 }
 
-/* function makeCryptoFunctions(key, algorithm) {
-  const crypto = require('crypto');
-  const cipher = crypto.createCipher('utf8', 'hex');
-  let encrypted = cipher.update(algorithm, 'utf8', 'hex');
-  encrypted += cipher.final('hex');
-  return [encrypted, cipher];
-} */
+function makeCryptoFunctions(key, algorithm) {
+  [(data) => {
+  const cipher = crypto.createCipher(algorithm, key);
+  return cipher.update(data, 'utf-8', 'hex') + cipher.final('hex');
+},
+(data) => {
+  const cipher = crypto.createDecipher(algorithm, key);
+  return cipher.update(data, 'hex', 'utf-8') + cipher.final('utf-8');
+  },
+];
 
 function randomName() {
   // code goes here
@@ -130,6 +126,6 @@ module.exports = {
   say,
   interleave,
   cylinder,
-  // makeCryptoFunctions,
+  makeCryptoFunctions,
   randomName,
 };
