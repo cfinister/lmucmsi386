@@ -15,13 +15,14 @@ function change(amount) {
 
   const coin = [25, 10, 5, 1];
   let remaining = amount;
-  for (let i = 0; i < coin.length; i += 1) {
-    const temp = Math.floor(remaining / coin[i]);
-    remaining -= (temp * coin[i]);
-    coin[i] = temp;
-  }
+  const result = [];
+  coin.forEach((x) => {
+    const temp = Math.floor(remaining / x);
+    remaining -= (temp * x);
+    result.push(temp);
+  });
 
-  return coin;
+  return result;
 }
 
 function stripQuotes(text) {
@@ -83,7 +84,6 @@ function interleave(x, ...y) {
   return combined;
 }
 
-
 function cylinder(spec) {
   let { radius = 1, height = 1 } = spec;
   const volume = () => Math.PI * radius * radius * height;
@@ -103,15 +103,16 @@ function cylinder(spec) {
 }
 
 function makeCryptoFunctions(key, algorithm) {
-  [(data) => {
-  const cipher = crypto.createCipher(algorithm, key);
-  return cipher.update(data, 'utf-8', 'hex') + cipher.final('hex');
-},
-(data) => {
-  const cipher = crypto.createDecipher(algorithm, key);
-  return cipher.update(data, 'hex', 'utf-8') + cipher.final('utf-8');
+  return [(data) => {
+    const cipher = crypto.createCipher(algorithm, key);
+    return cipher.update(data, 'utf-8', 'hex') + cipher.final('hex');
   },
-];
+  (data) => {
+    const cipher = crypto.createDecipher(algorithm, key);
+    return cipher.update(data, 'hex', 'utf-8') + cipher.final('utf-8');
+  },
+  ];
+}
 
 function randomName() {
   // code goes here
