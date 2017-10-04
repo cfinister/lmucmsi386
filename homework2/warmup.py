@@ -1,21 +1,28 @@
 def change(amount):
-    # return (0, 0, 0, 0)
+    if amount < 0:
+        raise ValueError('amount cannot be negative')
     coins = [25, 10, 5, 1]
-    result = {}
-    for coin_value, coin_name in coins:
-        if amount >= coin_value:
-            number_coin, amount = divmod(amount, coin_value)
-            result[coin_name] = number_coin
-    return result
+    result = []
+    for coin_value in coins:
+        number_coin, amount = divmod(amount, coin_value)
+        result.append(number_coin)
+    return tuple(result)
 
 def strip_quotes(s):
-    pass
+    strippedQuotes = s.replace('"', '').replace('\'', '')
+    return strippedQuotes
 
 def scramble(s):
-     pass
+    if len(s) == 1:
+        return s
+    recursive_scramble = []
+    for c in s:
+        for perm in scramble(s.replace(c, '', 1)):
+            recursive_scramble.append(c+perm)
+    return set(recursive_scramble)
 
 def say(new_words):
-     pass
+    pass
 
 def triples(t):
     pass
