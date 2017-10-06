@@ -1,6 +1,6 @@
-import string
 import math
 import random
+#import requests
 
 def change(amount):
     if amount < 0:
@@ -55,11 +55,38 @@ def interleave(words, *more_words):
             result.append(more_words[index])
     return result
 
-def Cylinder(radius, height):
-    pass
+class Cylinder:
+    def __init__(self, radius=None, height=None):
+        self.radius = radius
+        self.height = height
+        if radius is None:
+            self.radius = 1
+        if height is None:
+            self.height = 1
+    def __str__(self):
+        return "Radius: "+ str(self.radius) + ", Height: " + str(self.height)
+    @property
+    def volume(self):
+        return math.pi * self.radius * self.radius * self.height
+    @property
+    def surface_area(self):
+        return (2 * math.pi * self.radius * self.height) + (2 * math.pi * self.radius * self.radius)
+    def widen(self, widens):
+        self.radius = self.radius * widens
+        return self
+    def stretch(self, stretchHeight):
+        self.height = self.height * stretchHeight
+        return self.height
 
 def make_crypto_functions(key, iv):
     pass
 
-def random_name(r):
+def random_name(gender, region):
+    #r = requests.get('https://uinames.com/api',
+                     #params={'gender': gender, 'region': region, 'amount': 1})
+    #if r.status_code in range(200, 300):
+        #person = json.loads(r.text)
+        #person['surname'] ......... person['name']
+    #else:
+        #return r.text
     pass
