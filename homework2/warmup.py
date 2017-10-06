@@ -1,6 +1,8 @@
+#Homework 2 by Cherrell Finister & Hayato Hari
 import math
 import random
-#import requests
+import json
+import requests
 
 def change(amount):
     if amount < 0:
@@ -78,15 +80,15 @@ class Cylinder:
         self.height = self.height * stretchHeight
         return self.height
 
-def make_crypto_functions(key, iv):
+def make_crypto_functions(crypto_key, initialization, vector):
     pass
 
 def random_name(gender, region):
-    #r = requests.get('https://uinames.com/api',
-                     #params={'gender': gender, 'region': region, 'amount': 1})
-    #if r.status_code in range(200, 300):
-        #person = json.loads(r.text)
-        #person['surname'] ......... person['name']
-    #else:
-        #return r.text
-    pass
+    r = requests.get('https://uinames.com/api',
+                     params={'gender': gender, 'region': region, 'amount': 1})
+    if r.status_code in range(200, 300):
+        person = json.loads(r.text)
+        full_name = '{}, {}'.format(person['surname'], person['name'])
+        return full_name
+    else:
+        raise ValueError(r.text)
