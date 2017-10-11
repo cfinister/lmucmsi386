@@ -3,6 +3,7 @@ import math
 import random
 import json
 import requests
+from Crypto.Cipher import AES
 
 def change(amount):
     if amount < 0:
@@ -80,8 +81,12 @@ class Cylinder:
         self.height = self.height * stretchHeight
         return self.height
 
-def make_crypto_functions(crypto_key, initialization, vector):
-    pass
+def make_crypto_functions(crypto_key, initialization_vector):
+    def encryptor(message):
+        return AES.new(crypto_key, AES.MODE_CBC, initialization_vector).encrypt(message)
+    def decryptor(cipher):
+        return AES.new(crypto_key, AES.MODE_CBC, initialization_vector).decrypt(cipher)
+    return encryptor, decryptor
 
 def random_name(gender, region):
     r = requests.get('https://uinames.com/api',
