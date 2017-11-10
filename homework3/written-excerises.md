@@ -1,5 +1,11 @@
 ## problem 1
   how do i find the address of a C++ variable?
+  The values for `A[0][0] and A[3][7]` are so far apart from one another
+  because they are 296 bytes away from one another for 37 elements. Meaning that
+  for every element, it takes up 8 bytes. `int` takes up 4 bytes while `char` takes
+  up 1 byte leaving 3 bytes left for *padding*. That padding allows it to be in
+  8 bytes per row which will allow the program to run faster in a trade of taking
+  more memory. 
 
 ## problem 2
 What is A and what is B?
@@ -38,4 +44,4 @@ look on the course notes
 ## problem 6
 signature is just the top of the line
 just turn in the signature
-this refers to a raw array and a standard array 
+this refers to a raw array and a standard array
