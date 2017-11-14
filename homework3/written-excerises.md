@@ -1,4 +1,4 @@
-## By Cherrell Finister and Hayato Hari 
+## By Cherrell Finister and Hayato Hari
 ## problem 1
   The values for `A[0][0] and A[3][7]` are so far apart from one another
   because they are 296 bytes away from one another for 37 elements. Meaning that
@@ -49,5 +49,6 @@ the x within f is not the f you would find from calling out globally
 look on the course notes
 
 ## problem 6
-a. void scrambleString(const char* array[]);
-b. void scrambleString(std::array);
+A. void scrambleString(const char* array[]);
+
+B. void scrambleString(std::array);
