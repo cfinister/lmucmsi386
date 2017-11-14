@@ -7,9 +7,10 @@
   more memory.
 
 ## problem 2
-What is A and what is B?
-is it an array? A pointer to a function?
-please explain our how you got to this and write out some code to see how this work
+The C++ declaration of the first line is that “a” is an array of pointers of n doubles
+The C++ declaration of the second line is that “b” is a pointer to an array of n doubles
+The C++ declaration of the third line is a pointer to an array of pointers of n doubles which are functions
+The C++ declaration of the fourth line is a pointer to a function “d” that points to an array of n doubles
 
 ## problem 3
 It is a point to something and it is a function that is pointing its stuff to something
