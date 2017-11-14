@@ -20,10 +20,16 @@ what goes into a ..
 Var ags and what C++ does that?
 
 ## problem 4
-How to do a subclass?
-What is the meaning to inhertiate and what happens with that?
-pick up the C++ manual and try to understand that
-learn by discovery
+The representation of a Derived object contains Base as a sub object. They are
+direct Base classes, meaning that the object contains two b fields. Both are
+accessible under circumstances that std:: is used as well as being derived.
+To tell the story of how things are, int a is included in class Base. "std" is
+a namespace and the "::" operator is the "scope" operator. It tells the compiler
+which class/namespace to look in for an identifier. Therefore, since a String is
+defined by the standard library, this needed to be used in order to use it within
+that scope. When class Base was Derived, it became a sub object - somewhat
+ similar to a subclass - in Java which incorporated the initial int a and
+ string from class Base.
 
 ## problem 5
 What is static scoping and what is dynamic scoping?
@@ -42,6 +48,5 @@ the x within f is not the f you would find from calling out globally
 look on the course notes
 
 ## problem 6
-signature is just the top of the line
-just turn in the signature
-this refers to a raw array and a standard array
+a. void scrambleString(const char* array[]);
+b. void scrambleString(std::array);
