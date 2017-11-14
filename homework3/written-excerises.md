@@ -1,3 +1,4 @@
+## By Cherrell Finister and Hayato Hari 
 ## problem 1
   The values for `A[0][0] and A[3][7]` are so far apart from one another
   because they are 296 bytes away from one another for 37 elements. Meaning that
