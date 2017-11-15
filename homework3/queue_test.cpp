@@ -28,10 +28,10 @@ void test_some_insertions_and_deletions() {
 void test_no_copies() {
   Queue<int> p;
   Queue<int> q;
+  p = q;
+  Queue<int> r(p);
   // No way to test this at run time, but uncomment the following lines
   // and look for compile time errors.
-  // p = q;
-  // Queue<int> r(p);
 }
 
 Queue<int> one_two_three() {
