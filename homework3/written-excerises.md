@@ -1,4 +1,5 @@
 ## By Cherrell Finister and Hayato Hari
+
 ## problem 1
   The values for `A[0][0] and A[3][7]` are so far apart from one another
   because they are 296 bytes away from one another for 37 elements. Meaning that
@@ -38,7 +39,7 @@ can call to its own local 'x' without having to use the global 'x' provided. But
 with *Static* scoping the answer is *2,5,2* because the caller function in
 g() can only take in the global 'x' and not the local 'x' assigned to it in
 its function. The answer provided in _Dynamic_ scoping is one that would be
-called upon from the call chain the x is in. 
+called upon from the call chain the x is in.
 
 ## problem 6
 A. void scrambleString(const char* array[]);
