@@ -1,10 +1,26 @@
+#include <iostream>
 #include <cassert>
+#include <string>
+
+using namespace std;
+
+struct Chain {
+  string str = "";
+
+  Chain operator()(string value) {
+    return Chain { str + (str == "" ? "" : " ") + value };
+  }
+
+  string operator()() {
+    return str;
+  }
+};
+
+Chain say;
 
 int main() {
   assert(say() == "");
   assert(say("hello")() == "hello");
-  assert(say("how")("are")("you")() == "How are you");
+  assert(say("how")("are")("you")() == "how are you");
+  cout << "Yep, all tests passed, LIT AF!\n";
 }
-
-#define O(P)operator()(P){return{P+a};}int
-struct F{F O(int(m))O()a;}f;
