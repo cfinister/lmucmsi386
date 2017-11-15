@@ -1,39 +1,21 @@
 #include <iostream>
 #include <string>
-#include <cctype>
+#include <map>
 using namespace std;
 
-int countWord(string word);
-int main()
-
+int main(void)
 {
-    string inputstring;
-    cout << endl;
-    getline(cin, inputstring);
-    cout << countWord(inputstring) << endl;
+    string s;
+    map<string, int> counters;
 
+    while (cin >> s)
+        ++counters[s];
 
-    cin.get();
-    return 0;
-}
-int countWord(string word)
-{
-    int words(0);
-    int spaces(0);
-    for (int i = 0; i<word.length(); i++)
+    for (map<string, int>::const_iterator it = counters.begin();
+            it != counters.end(); ++it)
     {
-        if((!isspace(word[i]))&&(isspace(word[i+1]))||(word[i+1] == '\0'))
-        {
-            words++;
-        }
-        if(isspace(word[i]))
-        {
-            spaces++;
-            if(spaces == word.length())
-            {
-                words = 0;
-            }
-        }
+        cout << it->first << "\t" << it->second << endl;
     }
-    return words;
+
+    return 0;
 }
