@@ -14,6 +14,18 @@ The C++ declaration of the third line is a pointer to an array of pointers of n 
 The C++ declaration of the fourth line is a pointer to a function “d” that points to an array of n doubles
 
 ## problem 3
+*Type f* is a double floating point type. But it can take its in variables in
+different addresses because of the ellipses used in the double. The ellipses can
+take in _ANY_ type of function without throwing out an error. So even though type
+F is the pointer for the address, the address is interrupted by the ellipses as
+its data is stored in a list first and then to get access to those points it must
+call to `va_arg()`. `va_arg()` takes in two parameters the list (or the functions
+given to run, which is the ellipses) and the *type f* we try to access.
+
+*Type f* is a function pointer that accepts two parameters and then
+returns another function pointer (double) that takes in another two parameters
+that then returns another function. 
+
 It is a point to something and it is a function that is pointing its stuff to something
 What kind of place holder is this?
 What is “…” in C++?
