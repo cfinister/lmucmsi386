@@ -20,7 +20,7 @@ suite =
             , test "works for no quotes" <| \_ -> stripQuotes "dog" |> equal "dog"
             , test "removes stuff" <| \_ -> stripQuotes "''\"\"a'''" |> equal "a"
             , test "does not remove backslashes" <| \_ -> stripQuotes "a\\b" |> equal "a\\b"
-            ]
+            ] 
         , describe "powers function"
             [ test "works for negative limit" <| \_ -> powers 2 -5 |> equal (Ok [])
             , test "works for 2 up to 63" <| \_ -> powers 2 63 |> equal (Ok [1, 2, 4, 8, 16, 32])
