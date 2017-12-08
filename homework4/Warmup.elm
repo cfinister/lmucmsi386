@@ -16,8 +16,8 @@ change amount =
     else
       let
         (quarters, afterQuarters) = coin amount 25
-        (dimes, afterDimes) = coin amount 10
-        (nickels, pennies) = coin amount 5
+        (dimes, afterDimes) = coin afterQuarters 10
+        (nickels, pennies) = coin afterDimes 5
       in
         Ok (quarters, dimes, nickels, pennies)
 
